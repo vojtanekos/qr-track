@@ -1,5 +1,8 @@
 # Tuxxin QR Track
 
+![tuxxin-qr-track](https://github.com/user-attachments/assets/3bfd4d83-2f4f-47ba-94d8-4f608ba5f4b9)
+
+
 A lightweight, self-hosted dynamic QR code tracking system built with PHP and SQLite.
 Create, manage, and track QR codes for URLs, WiFi networks, vCards, and more—all from a secure, dark-mode dashboard or via a REST API.
 

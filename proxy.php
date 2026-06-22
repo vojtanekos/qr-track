@@ -66,7 +66,19 @@ $data = $product['target_data'];
 switch ($type) {
     case 'url':
     case 'social':
-        header("Location: " . $data);
+        $allowedSchemes = ['http://', 'https://'];
+        $isValidRedirect = false;
+        foreach ($allowedSchemes as $scheme) {
+            if (stripos($data, $scheme) === 0) {
+                $isValidRedirect = true;
+                break;
+            }
+        }
+        if ($isValidRedirect) {
+            header("Location: " . $data);
+        } else {
+            header("Location: /");
+        }
         break;
 
     case 'phone':

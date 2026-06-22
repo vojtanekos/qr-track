@@ -22,7 +22,7 @@ $headers = getallheaders();
 $authKey = $headers['X-Api-Key'] ?? $_GET['api_key'] ?? null;
 
 // Constant time comparison to prevent timing attacks
-if ($authKey === null || $authKey !== API_KEY) {
+if ($authKey === null || !hash_equals(API_KEY, $authKey)) {
     http_response_code(401);
     echo json_encode(['error' => 'Unauthorized: Invalid API Key']);
     exit;

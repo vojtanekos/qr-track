@@ -3,8 +3,20 @@
 require 'config.php';
 require_auth(); // Secure Dashboard
 
+// --- CSRF TOKEN ---
+if (session_status() === PHP_SESSION_NONE) session_start();
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 // --- HANDLE FORM SUBMISSIONS & ACTIONS ---
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    
+    // Validate CSRF token
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        http_response_code(403);
+        die("Invalid CSRF token.");
+    }
     
     // Action: Add New QR Code
     if ($_POST['action'] === 'add') {
@@ -145,6 +157,7 @@ include THEME_PATH . '/header.php';
         <h2>Add Product / QR</h2>
         <form method="POST" enctype="multipart/form-data">
             <input type="hidden" name="action" value="add">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
             <label>Title</label> <input type="text" name="title" required placeholder="Product Name">
             <label>Type</label>
             <select name="type" id="typeSelect" onchange="toggleFields()">
@@ -242,7 +255,7 @@ include THEME_PATH . '/header.php';
 
     // ACTIONS
     function toggleQR(id) {
-        const fd = new FormData(); fd.append('action', 'toggle'); fd.append('id', id);
+        const fd = new FormData(); fd.append('action', 'toggle'); fd.append('id', id); fd.append('csrf_token', '<?= $_SESSION['csrf_token'] ?>');
         fetch('index.php', { method: 'POST', body: fd });
     }
 
@@ -303,7 +316,7 @@ include THEME_PATH . '/header.php';
     let deleteId = null;
     function confirmDelete(id) { deleteId = id; openModal('deleteModal'); }
     document.getElementById('confirmDeleteBtn').onclick = function() {
-        const fd = new FormData(); fd.append('action', 'delete'); fd.append('id', deleteId);
+        const fd = new FormData(); fd.append('action', 'delete'); fd.append('id', deleteId); fd.append('csrf_token', '<?= $_SESSION['csrf_token'] ?>');
         fetch('index.php', { method: 'POST', body: fd }).then(() => location.reload());
     }
 </script>

